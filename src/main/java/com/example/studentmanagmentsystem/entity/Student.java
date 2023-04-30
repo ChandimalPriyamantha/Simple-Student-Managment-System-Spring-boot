@@ -1,8 +1,6 @@
 package com.example.studentmanagmentsystem.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 
 // @Entity annotation specifies that the class is an entity.
@@ -12,10 +10,18 @@ import jakarta.persistence.Table;
 public class Student
 {
     //@Id annotation specifies the primary key of the entity
+    // @GeneratedValue annotation specifies the generation strategies for the value of primary key
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(name = "first_name", nullable = false)
     private  String firstName;
+
+    @Column(name = "last_name")
     private String LastName;
+
+    @Column(name="email")
     private String email;
 
     public Student() {
